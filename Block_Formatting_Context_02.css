@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+body,p{ margin:0;}
+.box1{ margin:20px 0; background-color:#eee;}
+.box2{ margin:30px 0 0 0; background-color:#eee;}
+.siblings-box{ padding:10px; background:#6C3; color:#fff;}
+.inner-box{ padding:10px; background:#FC6;}
+.child1{ margin:40px 0 20px 0; background-color:blue; padding:10px; color:#fff;}
+.child2{ margin:15px 0; background-color:orange; padding:10px;}
+
+/*如何触发
+浮动元素，绝对定位元素，inline-blocks，table-cells，table-captions，以及 'overflow'不是 'visible'的元素，会创建新的block formatting context。*/
+
+.bfc-oh{ overflow:hidden;}/*只避免了父子元素的margin折叠,兄弟元素的margin还会折叠*/
+.bfc-os{ overflow:scroll;} /*会产生滚动条框,只避免了父子元素的margin折叠,兄弟元素的margin还会折叠*/
+.bfc-oa{ overflow:auto;}/*只避免了父子元素的margin折叠,兄弟元素的margin还会折叠*/
+
+.bfc-pa{ position:absolute;}/*这个属性在触发bfc时有些问题*/
+.bfc-pf{ position:fixed;}/*这个属性在触发bfc时有些问题*/
+
+.bfc-fl{ float:left;}/*浮动后，触发了元素的bfc，不仅避免了父子元素的margin折叠，兄弟元素的margin也不会折叠了*/
+.bfc-fr{ float:right;}
+
+.bfc-dib{ display:inline-block;}/*不仅避免了父子元素的margin折叠，兄弟元素的margin也不会折叠了*/
+.bfc-tcl{ display:table-cell;}/*怪异*/
+.bfc-tcp{ display:table-caption;}/*怪异*/
+.bfc-tb{ display:table;}/*只避免了父子元素的margin折叠,兄弟元素的margin还会折叠*/
+
+
+.fl,.fl-in{ float:left;}
+.bd{ border:1px solid red;}
+.margin-horz{ margin:0 30px;}
+.zoomIE{ zoom:1;}

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Block Formatting Context</title>
+<style type="text/css">
+html,body{ margin:0; padding:0;}
+.red,.orange,.green,.yellow{ width:100px; height:100px; float:left;}
+.red{ background-color:red;}
+.orange{ background-color:#F93;}
+.green{ background-color:green;}
+.yellow{ background-color:yellow;}
+
+.clearfix:after{ content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix{ zoom:1;}
+
+.left{ width: 100px; height: 100px; background: red; float: left;}
+.right { height: 200px;background: yellow;}
+</style>
+</head>
+
+<body> 
+<!--
+
+当涉及到可视化布局的时候，Block Formatting Context提供了一个环境，HTML元素在这个环境中按照一定规则进行布局。一个环境中的元素不会影响到其它环境中的布局。
+
+为了让我们有个感性的认识，举个不太合适的例子。你可以把一个页面想象成大的集装箱，这个集装箱里装的货物就是HTML元素。在现实生活中为了避免不同人的货物相互混淆，都是把货物打好包装再装入集装箱，这样的话无论你包装里面的货物怎么摆放，都不会影响到其他人的货物。那么这个包装就可以被想象成Block Formatting Context。
+
+当一个HTML元素满足下面条件的任何一点，都可以产生Block Formatting Context
+float的值不为none。
+overflow的值不为visible。
+display的值为table-cell, table-caption, inline-block中的任何一个。
+position的值不为relative和static。
+
+三，Block Formatting Context在生产中有什么作用
+1.Block Formatting Context可以阻止边距折叠（margin collapsing）。我们知道在一般情况下，两个上下相邻的盒子会折叠它们垂直方向接触到的边距，这种情况只会发生在同一个Block Formatting Context中。换句话说，在同一个布局环境中（Block Formatting Context）是边距折叠的必要条件。这也就是为什么浮动的元素和绝对定位元素不会发生边距折叠的原因（当然还有很多种情况也不会折叠）。
+
+2.Block Formatting Context可以包含内部元素的浮动。考虑一下下面的例子（请用标准浏览器查看）：
+-->
+        <!--<div class="c1 clearfix">
+            <div class="red"></div>
+            <div class="orange"></div>
+        </div>
+        <div class="c2 clearfix">
+            <div class="yellow"></div>
+            <div class="green"></div>
+        </div>-->
+
+<!--
+3.Block Formatting Context可以阻止元素被浮动覆盖。请看示例：
+-->
+		<!--<div class="left"></div>
+        <div class="right clearfix"></div>
+        <div style="overflow:hidden;">
+            <p style=" background:#ccc; margin:10px 0;">要条件。这也就是为什么浮动的元素和绝对定位元素不会发生边距折叠的原因</p>
+            <p style=" background:#ccc; margin:10px 0;">dddddddd要条件。这也就是为什么浮动的元素和绝对定位元素不会发生边距折叠的原因</p>
+       </div>-->
+       
+       
+       <!--<div style="width:300px;">
+            <div id="Container" style="background:silver;">
+                <span id="SPAN1" style="background:gray;">simple text</span>
+                <div id="DIV1" style="width:150px; height:50px; background:dimgray;">in flow</div>
+                <div id="DIV2" style="float:left; background:gold;">float:left</div>
+            </div>
+        </div>-->
+        
+      
+</body>
+</html>

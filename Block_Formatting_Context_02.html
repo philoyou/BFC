@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="Block_Formatting_Context_02.css" />
+</head>
+
+<body>
+    
+    
+        <div class="siblings-box">
+            <p>块格式化内容是个重要的概念，它对宽高的计算，margin折叠，定位等都有一定的影响。后续会有详细的说明。</p>
+        </div>
+        
+        <div class="box1 bfc-tb zoomIE">
+            <div class="child1">
+                <p>感谢加泰罗尼亚的人们给了我这个机会加泰隆尼感谢加泰罗尼亚的人们给了我这个机会，我也想向加泰隆尼</p>
+            </div>	
+            <div class="child2">
+                <p>感谢加泰罗尼亚的人们给了我这个机会，我也想的谢加泰罗尼亚的人们给了我这个机会，我也想向加泰隆尼</p>
+            </div>
+            <div class="fl-in inner-box">
+                <p>块格式化内容是个重要的概念，它对宽高的计算，margin折叠，定位等都有一定的影响。后续会有详细的说明。</p>
+            </div>		
+        </div>
+       
+       
+       
+        <div class="box2 bfc-tb zoomIE">
+            <div class="child1">
+                <p>感谢加泰罗尼亚的人们给了我这个机会加泰隆尼感谢加泰罗尼亚的人们给了我这个机会，我也想向加泰隆尼</p>
+            </div>	
+            <div class="child2">
+                <p>感谢加泰罗尼亚的人们给了我这个机会，我也想的谢加泰罗尼亚的人们给了我这个机会，我也想向加泰隆尼</p>
+            </div>
+            <div class="fl-in inner-box">
+                <p>块格式化内容是个重要的概念，它对宽高的计算，margin折叠，定位等都有一定的影响。后续会有详细的说明。</p>
+            </div>	
+        </div>
+    
+    	<!--
+        创建了 BFC的元素就是一个独立的盒子，里面的子元素不会在布局上影响外面的元素，反之亦然，同时BFC任然属于文档中的普通流。
+        -->
+</body>
+</html>

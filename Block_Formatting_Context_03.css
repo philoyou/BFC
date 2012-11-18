@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+ul{ margin:0; padding:0; list-style-type:none;}
+.box,
+.red,
+.orange,
+.yellow,
+.green{ float:left; width:120px; height:120px;}
+
+.box{ background-color:#ccc;}
+.box1{ width:300px; border:1px solid red; margin:0 0 20px 0;}
+
+.w_1,
+.w_2{ overflow:hidden;}
+.red{ background-color:red;}
+.orange{ background-color:orange;}
+.yellow{ background-color:yellow;}
+.green{ background-color:green;}
+
+.div1{ background-color:#ccc;}
+.div2{ margin:30px 0; width:150px;}
+
+.bfc-oh{ overflow:hidden;}
+.zoom{ zoom:1;}
+
+
+
+

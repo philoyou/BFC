@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>no title document</title>
+<link rel="stylesheet" type="text/css" href="Block_Formatting_Context_03.css" />
+</head>
+
+<body>
+	<!--1.防止文字环绕-->
+    <div class="box"></div>
+	<ul class="news-list bfc-oh zoom">
+	  <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+	  <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>
+      <li>我是个测试数据，别管我 ^ ^</li>		
+</ul>
+    <!--
+	overflow 属性一旦被指定，那么一个新的 Block Formatting Context 就被创建了，它不再围绕浮动元素。
+	-->
+
+	<!--2.闭合浮动-->
+	<div class="w_1 zoom">
+		<div class="red"></div>
+		<div class="orange"></div>
+	</div>
+	<div class="w_2 zoom">
+		<div class="yellow"></div>
+		<div class="green"></div>
+	</div>
+	<!--
+	本来想由四个方块组成一个两行两列的布局，但是由于 .red, .orange, .yellow, .green 这四个 div 同在一个布局环境中，即便通过 .w_1, .w_2 这两个 div 划分，
+	浮动之后它们还会一个接一个的排列，并不会因为有 div 划分而换行。而给 .w_1, .w_2 两个 div 创建 Block Formatting Context 后，这四个 div 便两两划分到不同的布局环境之中，
+	从而闭合浮动。
+	-->
+	
+	<!--3.阻止空白边折叠-->
+	<div class="box1">	
+		<div class="div1 bfc-oh" style="width:300px;">
+			<div class="div2">I do not open the BFC and I can use some method to open it</div>
+		</div>
+	</div>
+	<!--
+	div1的宽高都没有设置，它的宽度等于 box 的大小，高度等于 div2 的大小，
+	当创建 Block Formatting Context 后，div1 和 div2 不再发生空白边折叠，深灰色的 div1 撑满了 box。
+	-->
+	
+	<!--4.包含块计算高度时加上浮动元素-->
+		
+	
+	
+</body>
+</html>
